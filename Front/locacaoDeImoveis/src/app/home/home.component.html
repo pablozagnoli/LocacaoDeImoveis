@@ -3,6 +3,7 @@
 
     <main>
 
+
       <div
         class="relative pt-16 pb-32 flex content-center items-center justify-center"
         style="min-height: 75vh;"
@@ -56,6 +57,8 @@
       </div>
 
       <section class="pb-20 bg-gray-300 -mt-24">
+
+
         <div class="container mx-auto px-4">
           <div class="flex flex-wrap">
 
@@ -91,7 +94,25 @@
               points="2560 0 2560 100 0 100"
             ></polygon>
           </svg>
+
         </div>
+
+        <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+
+
+          <li class="container mx-auto px-4">
+            <button
+              class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
+              type="button"
+              style="transition: all 0.15s ease 0s"
+              routerLink="/login"
+            >
+              Inerir Novo Anuncio
+            </button>
+          </li>
+        </ul>
+
+        <div style="margin-top: 20px;"></div>
 
         <!-- anuncios -->
         <div class="container mx-auto px-4" *ngFor="let imovel of listaImoveis">
@@ -110,6 +131,16 @@
                   Essa Linda casa em nova lima está a venda e pode ser sua.
                 </p>
               </div>
+
+              <button
+              class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
+              type="button"
+              style="transition: all 0.15s ease 0s"
+
+            >
+              Atualiazar
+            </button>
+
             </div>
           </div>
 
