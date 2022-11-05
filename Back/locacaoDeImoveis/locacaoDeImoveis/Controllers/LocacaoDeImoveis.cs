@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -10,17 +11,18 @@ namespace locacaoDeImoveis.Controllers
 {
   [ApiController]
   [Route("[controller]")]
-  public class WeatherForecastController : ControllerBase
+  public class LocacaoDeImoveis : ControllerBase
   {
 
 
-    private readonly ILogger<WeatherForecastController> _logger;
+    private readonly ILogger<LocacaoDeImoveis> _logger;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public LocacaoDeImoveis(ILogger<LocacaoDeImoveis> logger)
     {
       _logger = logger;
     }
 
+    [EnableCors("Policy1")]
     [HttpGet("trazer")]
     public string Trazer()
     {

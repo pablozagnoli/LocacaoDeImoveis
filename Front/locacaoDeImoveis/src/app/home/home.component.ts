@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   ListarImoveis(){
     this.service.Listar().subscribe((imoveis) => {
-      this.listaImoveis = imoveis[0]
+      this.listaImoveis = imoveis
     });
   }
 

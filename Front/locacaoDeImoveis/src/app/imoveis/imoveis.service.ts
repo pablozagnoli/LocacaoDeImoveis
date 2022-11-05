@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ImoveisService {
 
-  private readonly API = "https://localhost:5001/WeatherForecast/trazer";
+  private readonly API = "https://localhost:5001/LocacaoDeImoveis/trazer";
 
   constructor(private http: HttpClient) { }
 

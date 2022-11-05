@@ -27,6 +27,24 @@ namespace locacaoDeImoveis
     public void ConfigureServices(IServiceCollection services)
     {
 
+      services.AddCors(options =>
+      {
+        options.AddPolicy("Policy1",
+            policy =>
+            {
+              policy.WithOrigins("http://localhost:4200",
+                                      "https://localhost:4200/");
+            });
+
+        options.AddPolicy("AnotherPolicy",
+            policy =>
+            {
+              policy.WithOrigins("http://www.contoso.com")
+                                      .AllowAnyHeader()
+                                      .AllowAnyMethod();
+            });
+      });
+
       services.AddControllers();
       services.AddSwaggerGen(c =>
       {
@@ -47,6 +65,8 @@ namespace locacaoDeImoveis
       app.UseHttpsRedirection();
 
       app.UseRouting();
+
+      app.UseCors();
 
       app.UseAuthorization();
 
