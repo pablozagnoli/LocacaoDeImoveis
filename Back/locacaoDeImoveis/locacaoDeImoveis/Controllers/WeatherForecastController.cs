@@ -25,7 +25,7 @@ namespace locacaoDeImoveis.Controllers
     public string Trazer()
     {
       var service = new Repository();
-      var retorno = service.conectdbMySqlAsync();
+      var retorno = service.QuerySelectIAllmoveis();
 
       return retorno;
     }

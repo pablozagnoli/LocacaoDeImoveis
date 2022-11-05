@@ -17,52 +17,33 @@ namespace locacaoDeImoveis.Controllers
     private MySqlDataAdapter mAdapter;
     private DataSet mDataSet;
 
-    public MySqlDataReader conectdb()
+    public string QuerySelectIAllmoveis()
     {
-      //Aqui você substitui pelos seus dados
 
-      var connection = new MySqlConnection(connString);
-      var command = connection.CreateCommand();
+      var retorno = ConnectMySqlServer(query: "SELECT * FROM IMOVEIS", table: "IMOVEIS");
 
-      try
-      {
-        connection.Open();
-        command.CommandText = "SELECT * FROM IMOVEIS";
-        return command.ExecuteReader();
-      }
-      finally
-      {
-        if (connection.State == ConnectionState.Open)
-          connection.Close();
-      }
+      string JSONString = JsonConvert.SerializeObject(retorno);
+
+      var JSONString2 = JsonConvert.DeserializeObject<List<imoveisDTO>>(JSONString);
+
+      return JSONString;
+
     }
 
-    public string conectdbMySqlAsync()
+    private DataTable ConnectMySqlServer(string query, string table)
     {
-
       mDataSet = new DataSet();
       mConn = new MySqlConnection(connString);
       mConn.Open();
 
-
       if (mConn.State == ConnectionState.Open)
       {
 
-        mAdapter = new MySqlDataAdapter("SELECT * FROM IMOVEIS", mConn);
-        mAdapter.Fill(mDataSet, "IMOVEIS");
+        mAdapter = new MySqlDataAdapter(query, mConn);
+        mAdapter.Fill(mDataSet, table);
 
-        var retorno = mDataSet.Tables["IMOVEIS"];
-
-        var serializado = retorno.AsEnumerable();
-
-
-        string JSONString = JsonConvert.SerializeObject(retorno);
-
-        var JSONString2 = JsonConvert.DeserializeObject<List<imoveisDTO>>(JSONString);
-
-        return JSONString;
+        return mDataSet.Tables[table];
       }
-
       return null;
     }
   }

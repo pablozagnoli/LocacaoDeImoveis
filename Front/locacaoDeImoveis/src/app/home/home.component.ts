@@ -1,3 +1,5 @@
+import { ImoveisService } from './../imoveis/imoveis.service';
+import { ImoveisDTO } from './../Models/ImoveisDTO';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  listaImoveis: ImoveisDTO[] = [];
+
+  constructor(private service: ImoveisService) { }
 
   ngOnInit(): void {
+    this.ListarImoveis();
+  }
+
+  ListarImoveis(){
+    this.service.Listar().subscribe((imoveis) => {
+      this.listaImoveis = imoveis[0]
+    });
   }
 
 }

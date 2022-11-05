@@ -17,8 +17,7 @@
           ></span>
         </div>
 
-        //cabeçalho
-
+        <!-- cabeçalho  -->
         <div class="container relative mx-auto">
           <div class="items-center flex flex-wrap">
             <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
@@ -94,27 +93,23 @@
           </svg>
         </div>
 
-        <div class="container mx-auto px-4">
+        <!-- anuncios -->
+        <div class="container mx-auto px-4" *ngFor="let imovel = listaImoveis">
           <div class="items-center flex flex-wrap">
             <div class="w-full md:w-4/12 ml-auto mr-auto px-4">
               <img
                 alt="..."
                 class="max-w-full rounded-lg shadow-lg"
-                src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80"
+                src="./assets/img/casa1.jpg"
               />
             </div>
             <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
               <div class="md:pr-12">
-                <h3 class="text-3xl font-semibold">A growing company</h3>
+                <h3 class="text-3xl font-semibold">{{imovel.descricao_imovel}}</h3>
                 <p class="mt-4 text-lg leading-relaxed text-gray-600">
-                  The extension comes with three pre-built pages to help you get
-                  started faster. You can change the text and images and you're
-                  good to go.
+                  Essa Linda casa em nova lima está a venda e pode ser sua.
                 </p>
-
-
               </div>
-
             </div>
           </div>
         </div>
