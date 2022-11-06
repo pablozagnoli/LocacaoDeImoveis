@@ -100,12 +100,13 @@
         <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
 
 
-          <li class="container mx-auto px-4">
+          <li style="width: 1000px;
+          margin: 0 auto;">
             <button
               class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
               type="button"
               style="transition: all 0.15s ease 0s"
-              routerLink="/login"
+              routerLink="/cadastrar"
             >
               Inerir Novo Anuncio
             </button>
@@ -126,9 +127,21 @@
             </div>
             <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
               <div class="md:pr-12">
-                <h3 class="text-3xl font-semibold">{{imovel.descricao_imovel}}</h3>
+                <h3 class="text-3xl font-semibold">{{imovel.titulo_imovel}}</h3>
                 <p class="mt-4 text-lg leading-relaxed text-gray-600">
-                  Essa Linda casa em nova lima está a venda e pode ser sua.
+                  {{imovel.descricao_imovel}}
+                </p>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-600">
+                 Endereço: {{imovel.endereco_imovel}}
+                </p>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-600">
+                  CEP: {{imovel.cep_imovel}}
+                </p>
+
+                <p class="mt-4 text-lg leading-relaxed text-gray-600">
+                  R$ {{ imovel.valor_imovel}}
                 </p>
               </div>
 

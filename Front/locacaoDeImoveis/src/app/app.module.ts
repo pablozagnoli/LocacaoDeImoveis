@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { HeadComponent } from './head/head.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     FooterComponent,
     HeaderComponent,
-    HeadComponent
+    HeadComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
