@@ -1,6 +1,7 @@
+import { AtualizarComponent } from './atualizar/atualizar.component';
 import { HomeComponent } from './home/home.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'cadastrar',
     component: CadastroComponent
+  },
+  {
+    path: 'atualizar/:id',
+    component: AtualizarComponent
   }
 ];
 

@@ -1,1 +1,62 @@
-<p>imoveis works!</p>
+<div *ngIf="listaImoveis.length > 0, else semImoveis">
+<div class="container mx-auto px-4" *ngFor="let imovel of listaImoveis">
+
+  <div class="items-center flex flex-wrap">
+    <div class="w-full md:w-4/12 ml-auto mr-auto px-4">
+      <img
+        alt="..."
+        class="max-w-full rounded-lg shadow-lg"
+        src= "{{'./assets/img/casa'+imovel.imovel_id+'.jpg'}}"
+      />
+    </div>
+    <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
+      <div class="md:pr-12">
+        <h3 class="text-3xl font-semibold">{{imovel.titulo_imovel}}</h3>
+        <p class="mt-4 text-lg leading-relaxed text-gray-600">
+          {{imovel.descricao_imovel}}
+        </p>
+
+        <p class="mt-4 text-lg leading-relaxed text-gray-600">
+         Endereço: {{imovel.endereco_imovel}}
+        </p>
+
+        <p class="mt-4 text-lg leading-relaxed text-gray-600">
+          CEP: {{imovel.cep_imovel}}
+        </p>
+
+        <p class="mt-4 text-lg leading-relaxed text-gray-600">
+          R$ {{ imovel.valor_imovel}}
+        </p>
+        <p
+        hidden
+        name=""
+        >
+        {{ imovel.valor_imovel }}
+        </p>
+      </div>
+
+      <button
+      class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
+      type="button"
+      style="transition: all 0.15s ease 0s"
+      routerLink="/atualizar/{{imovel.imovel_id}}"
+    >
+      Editar Imovel
+    </button>
+
+    </div>
+  </div>
+
+  <div style="margin-top: 20px;"></div>
+
+</div>
+
+</div>
+
+<ng-template #semImoveis>
+  <div style="text-align:center ;">
+    <p>Ainda não há Imoveis cadastrados!</p>
+  </div>
+</ng-template>
+
+

@@ -1,0 +1,130 @@
+<main>
+  <div class="container mx-auto px-4" *ngIf=" Imovel.descricao_imovel.length > 0, else semImoveis">
+  <div class="items-center flex flex-wrap">
+    <div class="w-full md:w-4/12 ml-auto mr-auto px-4">
+      <img
+        alt="..."
+        class="max-w-full rounded-lg shadow-lg"
+        src= "{{'./assets/img/casa'+Imovel.imovel_id+'.jpg'}}"
+      />
+    </div>
+    <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
+      <div class="md:pr-12">
+
+        <div style="margin-top: 20px;"></div>
+
+        <div class="relative w-full mb-3">
+          <label
+            class="block uppercase text-gray-700 text-xs font-bold mb-2"
+            >Titulo do Imovel</label>
+          <input
+            type="text"
+            class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+            placeholder=" Descrição Imovel"
+            style="transition: all 0.15s ease 0s"
+            value="{{ Imovel.titulo_imovel }}"
+            id="descricao"
+            name="descricao"
+            [(ngModel)]="Imovel.titulo_imovel"
+          />
+        </div>
+
+        <div class="relative w-full mb-3">
+          <label
+            class="block uppercase text-gray-700 text-xs font-bold mb-2"
+            >Descrição do Imovel</label>
+          <input
+            type="text"
+            class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+            placeholder=" Descrição Imovel"
+            style="transition: all 0.15s ease 0s"
+            value="{{ Imovel.descricao_imovel }}"
+            id="descricao"
+            name="descricao"
+            [(ngModel)]="Imovel.descricao_imovel"
+          />
+        </div>
+
+        <div class="relative w-full mb-3">
+          <label
+            class="block uppercase text-gray-700 text-xs font-bold mb-2"
+            >Endereço do Imovel</label>
+          <input
+            type="text"
+            class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+            placeholder=" Descrição Imovel"
+            style="transition: all 0.15s ease 0s"
+            value="{{ Imovel.endereco_imovel }}"
+            id="descricao"
+            name="descricao"
+            [(ngModel)]="Imovel.endereco_imovel"
+          />
+        </div>
+
+        <div class="relative w-full mb-3">
+          <label
+            class="block uppercase text-gray-700 text-xs font-bold mb-2"
+            >Cep do Imovel</label>
+          <input
+            type="text"
+            class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+            placeholder=" Descrição Imovel"
+            style="transition: all 0.15s ease 0s"
+            value="{{ Imovel.cep_imovel }}"
+            id="descricao"
+            name="descricao"
+            [(ngModel)]="Imovel.cep_imovel"
+          />
+        </div>
+
+        <div class="relative w-full mb-3">
+          <label
+            class="block uppercase text-gray-700 text-xs font-bold mb-2"
+            >Valor do Imovel</label>
+          <input
+            type="text"
+            class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+            placeholder=" Descrição Imovel"
+            style="transition: all 0.15s ease 0s"
+            value="{{ Imovel.valor_imovel }}"
+            id="descricao"
+            name="descricao"
+            [(ngModel)]="Imovel.valor_imovel"
+          />
+        </div>
+
+      </div>
+
+      <button
+      class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
+      type="button"
+      style="transition: all 0.15s ease 0s"
+      (click)="AtualizarImovel()"
+    >
+      Atualizar
+    </button>
+
+    <button
+    class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
+    type="button"
+    style="transition: all 0.15s ease 0s"
+    (click)="DeletarImovel()"
+  >
+    Deletar
+  </button>
+
+    </div>
+  </div>
+
+  <div style="margin-top: 20px;"></div>
+
+</div>
+
+<ng-template #semImoveis>
+  <div style="text-align:center ;">
+    <p>Ainda não há Imoveis cadastrados!</p>
+  </div>
+</ng-template>
+</main>
+
+

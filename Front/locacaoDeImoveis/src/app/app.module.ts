@@ -11,6 +11,7 @@ import { HeadComponent } from './head/head.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { AtualizarComponent } from './atualizar/atualizar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     FooterComponent,
     HeaderComponent,
     HeadComponent,
-    CadastroComponent
+    CadastroComponent,
+    AtualizarComponent
   ],
   imports: [
     BrowserModule,

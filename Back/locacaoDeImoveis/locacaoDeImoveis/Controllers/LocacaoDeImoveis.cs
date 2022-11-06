@@ -23,16 +23,6 @@ namespace locacaoDeImoveis.Controllers
       _logger = logger;
     }
 
-    [EnableCors("Policy1")]
-    [HttpGet("trazer")]
-    public string Trazer()
-    {
-      var service = new Repository();
-      var retorno = service.QuerySelectIAllmoveis();
-
-      return retorno;
-    }
-
     [EnableCors("AnotherPolicy")]
     [HttpPost("criar")]
     public int Criar([FromBody] imoveisDTO imovel)
@@ -44,16 +34,46 @@ namespace locacaoDeImoveis.Controllers
       return retorno;
     }
 
-    [HttpPut]
-    public string Atualiza()
+    [EnableCors("Policy1")]
+    [HttpGet("trazer")]
+    public List<imoveisDTO> Trazer()
     {
-      return "teste";
+      var service = new Repository();
+      var retorno = service.QuerySelectIAllmoveis();
+
+      return retorno;
     }
 
-    [HttpDelete]
-    public string Deleta()
+    [EnableCors("Policy1")]
+    [HttpGet("trazer/{id}")]
+    public imoveisDTO TrazerUm(int id)
     {
-      return "teste";
+      var service = new Repository();
+      var retorno = service.QuerySelectIOneImovel(id);
+
+      return retorno;
+    }
+
+
+    [EnableCors("AnotherPolicy")]
+    [HttpDelete("deletar/{id}")]
+    public int Deletar(int id)
+    {
+      var service = new Repository();
+      var retorno = service.QueryDeleteOneImovel(id);
+
+      return retorno;
+    }
+
+    [EnableCors("AnotherPolicy")]
+    [HttpPut("atualizar/{id}")]
+    public int Atualiza([FromBody] imoveisDTO imovel, int id)
+    {
+      imovel.imovel_id = id;
+      var service = new Repository();
+      var retorno = service.QueryUpdatetImovel(imovel);
+
+      return retorno;
     }
   }
 }

@@ -20,23 +20,47 @@ namespace locacaoDeImoveis.Controllers
     private DataSet mDataSet;
     #endregion
 
-    public string QuerySelectIAllmoveis()
+    public List<imoveisDTO> QuerySelectIAllmoveis()
     {
       var retorno = ConnectMySqlServerSelect(query: "SELECT * FROM IMOVEIS", table: "IMOVEIS");
 
-      string JSONString = JsonConvert.SerializeObject(retorno);
+      string imoveisJson = JsonConvert.SerializeObject(retorno);
 
-      var JSONString2 = JsonConvert.DeserializeObject<List<imoveisDTO>>(JSONString);
+      var imoveisList = JsonConvert.DeserializeObject<List<imoveisDTO>>(imoveisJson);
 
-      return JSONString;
+      return imoveisList;
+    }
+
+    public imoveisDTO QuerySelectIOneImovel(int id)
+    {
+      var retorno = ConnectMySqlServerSelect(query: @$"SELECT * FROM IMOVEIS 
+                                                                WHERE imovel_id = {id}", table: "IMOVEIS");
+
+      string imoveisJson = JsonConvert.SerializeObject(retorno);
+
+      var imoveisList = JsonConvert.DeserializeObject<List<imoveisDTO>>(imoveisJson).FirstOrDefault();
+
+      return imoveisList;
+    }
+
+    public int QueryDeleteOneImovel(int id)
+    {
+      var retorno = ConnectMySqlExecuteQuery(query: @$"DELETE FROM IMOVEIS 
+                                                                WHERE imovel_id = {id}");
+
+      return retorno;
     }
 
     public int QueryInsertImovel(imoveisDTO imovel)
     {
-      var listDeImoveis = JsonConvert.DeserializeObject<List<imoveisDTO>>(QuerySelectIAllmoveis());
+      var listDeImoveis = QuerySelectIAllmoveis();
       imovel.imovel_id = listDeImoveis.Select(x => x.imovel_id).Max() + 1;
+      if (imovel.imovel_id < 1 || imovel.imovel_id == null)
+      {
+        imovel.imovel_id = 1;
+      }
 
-      var retorno = ConnectMySqlServerInsert(query: $@"INSERT INTO IMOVEIS 
+      var retorno = ConnectMySqlExecuteQuery(query: $@"INSERT INTO IMOVEIS 
                                                                    (
                                                                    imovel_id,
                                                                    titulo_imovel,
@@ -66,16 +90,14 @@ namespace locacaoDeImoveis.Controllers
     public int QueryUpdatetImovel(imoveisDTO imovel)
     {
       var date = System.DateTime.Now.Date.ToString().Split(' ');
-      var retorno = ConnectMySqlServerInsert(query: $@"UPDATE IMOVEIS SET
+      var retorno = ConnectMySqlExecuteQuery(query: $@"UPDATE IMOVEIS SET
                                                                    titulo_imovel = '{imovel.titulo_imovel}',
                                                                    descricao_imovel = '{imovel.descricao_imovel}',
                                                                    endereco_imovel = '{imovel.endereco_imovel}',
                                                                    valor_imovel = '{imovel.valor_imovel}',
                                                                    cep_imovel = '{imovel.cep_imovel}',
-                                                                   status, = 1
-                                                                   priority = 2,
-                                                                   data_de_edicao = {System.DateTime.Now}
-                                                                   WHERE imovel_id = {imovel.imovel_id},
+                                                                   data_de_edicao = STR_TO_DATE('{date[0].ToString().Replace('/', ' ')}', '%d %m %Y')
+                                                                   WHERE imovel_id = {imovel.imovel_id}
                                                                    ");
 
       return retorno;
@@ -98,7 +120,7 @@ namespace locacaoDeImoveis.Controllers
       return null;
     }
 
-    private int ConnectMySqlServerInsert(string query)
+    private int ConnectMySqlExecuteQuery(string query)
     {
       mDataSet = new DataSet();
       mConn = new MySqlConnection(connString);

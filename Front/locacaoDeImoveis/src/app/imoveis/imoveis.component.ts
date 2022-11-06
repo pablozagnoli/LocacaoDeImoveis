@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ImoveisDTO } from '../Models/ImoveisDTO';
 import { ImoveisService } from './imoveis.service';
 
 @Component({
@@ -8,12 +10,22 @@ import { ImoveisService } from './imoveis.service';
 })
 export class ImoveisComponent implements OnInit {
 
-  constructor(private service: ImoveisService) { }
+  listaImoveis: ImoveisDTO[] = [];
+  id = this.route.snapshot.paramMap.get('id');
+
+  constructor(
+    private service: ImoveisService,
+    private route: ActivatedRoute
+    ) { }
+
 
   ngOnInit(): void {
+    this.ListarImoveis();
   }
 
-  buscarImoveis(){
-    this.service.Listar();
+  ListarImoveis(){
+    this.service.Listar().subscribe((imoveis) => {
+      this.listaImoveis = imoveis
+    });
   }
 }

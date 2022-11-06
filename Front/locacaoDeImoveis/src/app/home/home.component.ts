@@ -9,18 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  listaImoveis: ImoveisDTO[] = [];
-
   constructor(private service: ImoveisService) { }
 
   ngOnInit(): void {
-    this.ListarImoveis();
-  }
 
-  ListarImoveis(){
-    this.service.Listar().subscribe((imoveis) => {
-      this.listaImoveis = imoveis
-    });
   }
 
 }
