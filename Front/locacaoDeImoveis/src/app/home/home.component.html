@@ -97,30 +97,54 @@
 
         </div>
 
-        <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+
+        <!-- Botoes de cadastro-->
+          <div class="container mx-auto px-4">
+
+            <div class="items-center flex flex-wrap">
+              <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
+
+                <button
+                class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
+                type="button"
+                style="transition: all 0.15s ease 0s; background-color: #191970;"
+                routerLink="/cadastrar"
+              >
+              Inserir Novo Anuncio De Venda
+              </button>
+
+              </div>
+              <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
 
 
-          <li style="width: 1000px;
-          margin: 0 auto;">
-            <button
-              class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-3 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
-              type="button"
-              style="transition: all 0.15s ease 0s"
-              routerLink="/cadastrar"
-            >
+                <button
+                class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
+                type="button"
+                style="transition: all 0.15s ease 0s; background-color: #191970;"
+                routerLink="/cadastrar"
+              >
               Inserir Novo Anuncio De Aluguel
-            </button>
+              </button>
 
-            <button
-            class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-3 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
-            type="button"
-            style="transition: all 0.15s ease 0s"
-            routerLink="/cadastrar"
-          >
-            Inserir Novo Anuncio De Venda
-          </button>
-          </li>
-        </ul>
+              </div>
+            </div>
+
+            <div style="margin-top: 20px;"></div>
+
+          </div>
+
+
+          <ng-template #semImoveis>
+            <div style="text-align:center ;">
+              <p>Ainda não há Imoveis cadastrados!</p>
+            </div>
+          </ng-template>
+
+
+
+        <!--  -->
+
+
 
         <div style="margin-top: 20px;"></div>
 
