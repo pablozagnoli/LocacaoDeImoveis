@@ -33,13 +33,19 @@ namespace locacaoDeImoveis
             policy =>
             {
               policy.WithOrigins("http://localhost:4200",
-                                      "https://localhost:4200/");
+                                 "https://localhost:4200/",
+                                 "http://localhost:5000",
+                                 "https://localhost:5000/");
             });
 
         options.AddPolicy("AnotherPolicy",
             policy =>
             {
-              policy.WithOrigins("http://www.contoso.com")
+              policy.WithOrigins("http://www.contoso.com",
+                                 "http://localhost:4200",
+                                 "https://localhost:4200/",
+                                 "http://localhost:5000",
+                                 "https://localhost:5000/")
                                       .AllowAnyHeader()
                                       .AllowAnyMethod();
             });

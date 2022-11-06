@@ -1,5 +1,6 @@
 import { ImoveisDTO } from './../Models/ImoveisDTO';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ImoveisService } from '../imoveis/imoveis.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroComponent implements OnInit {
 
-  imoveis: ImoveisDTO = {
+  @Input() imoveis: ImoveisDTO = {
     imovel_id: 0,
     descricao_imovel: '',
     status: 0,
@@ -21,9 +22,15 @@ export class CadastroComponent implements OnInit {
     valor_imovel: ''
   }
 
-  constructor() { }
+  constructor(private service: ImoveisService) { }
 
   ngOnInit(): void {
+  }
+
+  cadastrarImovel(){
+    this.service.Criar(this.imoveis).subscribe(() => {
+      alert("Imovel cadastrado!");
+    })
   }
 
 }

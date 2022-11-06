@@ -7,8 +7,12 @@ namespace locacaoDeImoveis.DTO
 {
   public class imoveisDTO
   {
-    public int imovel_id { get; set; }
+    public int? imovel_id { get; set; }
+    public string titulo_imovel { get; set; }
     public string descricao_imovel { get; set; }
+    public string endereco_imovel { get; set; }
+    public string valor_imovel { get; set; }
+    public string cep_imovel { get; set; }
     public DateTime? data_de_edicao { get; set; }
     public int? status { get; set; }
     public int? priority { get; set; }

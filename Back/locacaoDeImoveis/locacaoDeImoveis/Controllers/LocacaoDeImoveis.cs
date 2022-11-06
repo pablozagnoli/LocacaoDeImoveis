@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using locacaoDeImoveis.DTO;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -32,10 +33,15 @@ namespace locacaoDeImoveis.Controllers
       return retorno;
     }
 
-    [HttpPost]
-    public string Criar()
+    [EnableCors("AnotherPolicy")]
+    [HttpPost("criar")]
+    public int Criar([FromBody] imoveisDTO imovel)
     {
-      return "teste";
+      var service = new Repository();
+
+      var retorno = service.QueryInsertImovel(imovel);
+
+      return retorno;
     }
 
     [HttpPut]

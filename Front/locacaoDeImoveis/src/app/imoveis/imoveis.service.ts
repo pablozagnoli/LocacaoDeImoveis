@@ -7,17 +7,18 @@ import { Observable } from 'rxjs';
 })
 export class ImoveisService {
 
-  private readonly API = "https://localhost:5001/LocacaoDeImoveis/trazer";
+  private readonly ROTAGETALL = "https://localhost:5001/LocacaoDeImoveis/trazer";
+  private readonly ROTAPOST = "https://localhost:5001/LocacaoDeImoveis/criar";
 
   constructor(private http: HttpClient) { }
 
   Listar(): Observable<any> {
-    let result = this.http.get<any>(this.API);
+    let result = this.http.get<any>(this.ROTAGETALL);
     return result;
   }
 
-  Criar(usuario: any): Observable<any> {
-    let result: Observable<any> = this.http.post<any>(this.API, usuario)
+  Criar(imovel: any): Observable<any> {
+    let result: Observable<any> = this.http.post<any>(this.ROTAPOST, imovel)
       return result;
   }
 }
