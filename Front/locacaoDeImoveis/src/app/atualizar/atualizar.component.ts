@@ -53,4 +53,13 @@ export class AtualizarComponent implements OnInit {
       this.Imovel = imovelRetorno
     });
   }
+
+  trazerEnderecoImovel(){
+    this.service.trazerEndereco(this.Imovel.cep_imovel).subscribe((enderecoRetorno) => {
+      this.Imovel.endereco_imovel = enderecoRetorno.logradouro +","+
+                                    enderecoRetorno.bairro +","+
+                                    enderecoRetorno.localidade +","+
+                                    enderecoRetorno.uf
+    })
+  }
 }

@@ -11,7 +11,7 @@ export class ImoveisService {
   private readonly ROTAGETONE = "https://localhost:5001/LocacaoDeImoveis/trazer/";
   private readonly ROTAATUALIZARONE = "https://localhost:5001/LocacaoDeImoveis/atualizar/";
   private readonly ROTADELETEONE = "https://localhost:5001/LocacaoDeImoveis/deletar/";
-
+  private readonly ROTAGETENDERECOIMOVEL = "https://localhost:5001/LocacaoDeImoveis/endereco/";
   private readonly ROTAPOST = "https://localhost:5001/LocacaoDeImoveis/criar";
 
   constructor(private http: HttpClient) { }
@@ -29,6 +29,11 @@ export class ImoveisService {
 
   ListarUm(id: number): Observable<any> {
     let result = this.http.get<any>(this.ROTAGETONE + id);
+    return result;
+  }
+
+  trazerEndereco(cep: string): Observable<any> {
+    let result = this.http.get<any>(this.ROTAGETENDERECOIMOVEL + cep);
     return result;
   }
 

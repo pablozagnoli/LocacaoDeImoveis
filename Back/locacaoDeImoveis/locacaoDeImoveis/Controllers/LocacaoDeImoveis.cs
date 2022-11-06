@@ -45,6 +45,16 @@ namespace locacaoDeImoveis.Controllers
     }
 
     [EnableCors("Policy1")]
+    [HttpGet("endereco/{cep}")]
+    public async Task<ViaCepDTO> TrazerEnderecoAsync(string cep)
+    {
+      var service = new Services();
+      var retorno = await service.GetEnderecoAsync($"https://viacep.com.br/ws/", cep +"/json/");
+
+      return retorno;
+    }
+
+    [EnableCors("Policy1")]
     [HttpGet("trazer/{id}")]
     public imoveisDTO TrazerUm(int id)
     {

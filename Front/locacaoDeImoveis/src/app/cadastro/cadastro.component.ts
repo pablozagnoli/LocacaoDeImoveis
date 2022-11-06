@@ -33,4 +33,13 @@ export class CadastroComponent implements OnInit {
     })
   }
 
+  trazerEnderecoImovel(){
+    this.service.trazerEndereco(this.imoveis.cep_imovel).subscribe((enderecoRetorno) => {
+      this.imoveis.endereco_imovel = enderecoRetorno.logradouro +","+
+                                    enderecoRetorno.bairro +","+
+                                    enderecoRetorno.localidade +","+
+                                    enderecoRetorno.uf
+    })
+  }
+
 }
