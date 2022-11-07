@@ -1,6 +1,7 @@
 --Aplicação para locação de imóveis--
 
 --Essa aplicação foi desenvolvida utilizando .Net Core para o Back e Angular para o Front--
+
 no diretório existem duas pastas separando o back e o front:
 
 Na pasta de nome: "Front" se encontra o Projeto do front, uma interface desenvolvido em Angular.
@@ -26,5 +27,3 @@ Para o rodar o projeto do Back API em .NET:
 Certifique-se de que você pussui o .NET instalado em seu computador. 
 Clone o repósitorio abra a pasta do projeto do back com seu Terminal preferido e em seguida digite o comando "dotnet run".
 este comando irá realizar a execução do projeto do back no seu localhost na porta 500 (Certifque-se de o projeto está rodando nessa porta). Após executar com o sucesso a API do back, você pode navegar e executar todas as funções do projet do Front em Angular.
-
-image.png
