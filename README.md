@@ -22,6 +22,16 @@ Ao abrir a URL nenhum dado será exibido se a API no back não estiver rodando n
 
 2 - Certifique-se de que você pussui o Angular-MSI instalado em seu computador. 
 Clone o repositório, abra a pasta do projeto do front com seu Terminal preferido e em seguida digite o comando "ng serve".
+Ao executar o comando "ng serve" o erro a seguir pode acontecer devido a dependências do angular: 
+
+"Node packages may not be installed. Try installing with 'npm install'.
+Error: Could not find the '@angular-devkit/build-angular:dev-server' builder's node package."
+
+Para corrigir o erro e executar o projeto sem impedimentos execute o comando a frente no seu terminal aberto no diretório do projeto do Front Angular:
+"npm install --save-dev @angular-devkit/build-angular"
+
+Após executar o comando de correção, pode executar novamente o comando "ng serve"
+
 este comando irá realizar a execução do projeto do front no seu localhost. Ao abrir o projeto no seu navegador nenhum dado será exibido se a API no back não estiver rodando na porta 5000 do localHost. (Para rodar a API siga para a etapa de execução do Back).
 
 
