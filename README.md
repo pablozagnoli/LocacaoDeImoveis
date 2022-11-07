@@ -8,9 +8,9 @@ Na pasta de nome: "Front" se encontra o Projeto do front, uma interface desenvol
 
 Na pasta de nome: "Back" se encontra o Projeto do back, uma API desenvolvida em .Net Core.
 
-Tambem estão contidos na pasta Raiz deste projeto o arquivo: "ScriptsSql.txt" contendo o Script de Criação da tabela do banco de dados MySql.
+Também estão contidos na pasta Raiz deste projeto o arquivo: "ScriptsSql.txt" contendo o Script de Criação da tabela do banco de dados MySql.
 
---Tambem foi utilizada como critério de avaliação a API ViaCep para consulta do endereço via CEP--
+--Também foi utilizada como critério de avaliação a API ViaCep para consulta do endereço via CEP--
 
 --PARA RODAR O PROJETO--
 
