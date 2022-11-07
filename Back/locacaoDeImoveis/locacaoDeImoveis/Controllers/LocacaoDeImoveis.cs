@@ -2,11 +2,9 @@
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace locacaoDeImoveis.Controllers
 {
@@ -14,7 +12,6 @@ namespace locacaoDeImoveis.Controllers
   [Route("[controller]")]
   public class LocacaoDeImoveis : ControllerBase
   {
-
 
     private readonly ILogger<LocacaoDeImoveis> _logger;
 
@@ -28,7 +25,6 @@ namespace locacaoDeImoveis.Controllers
     public int Criar([FromBody] imoveisDTO imovel)
     {
       var service = new Repository();
-
       var retorno = service.QueryInsertImovel(imovel);
 
       return retorno;
@@ -63,7 +59,6 @@ namespace locacaoDeImoveis.Controllers
 
       return retorno;
     }
-
 
     [EnableCors("AnotherPolicy")]
     [HttpDelete("deletar/{id}")]

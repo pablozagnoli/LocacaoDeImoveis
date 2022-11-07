@@ -2,9 +2,9 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+
 
 namespace locacaoDeImoveis.Controllers
 {
@@ -29,7 +29,7 @@ namespace locacaoDeImoveis.Controllers
           complemento = "",
           localidade = "",
           logradouro = "",
-          uf  = ""
+          uf = ""
         };
       }
 
@@ -37,31 +37,47 @@ namespace locacaoDeImoveis.Controllers
 
     public static async Task<string> PostAsync(string baseUrl)
     {
-      using (var client = new HttpClient())
+      try
       {
-        client.BaseAddress = new Uri(baseUrl);
-        var content = new FormUrlEncodedContent(new[]
+        using (var client = new HttpClient())
         {
+          client.BaseAddress = new Uri(baseUrl);
+          var content = new FormUrlEncodedContent(new[]
+          {
                 new KeyValuePair<string, string>("", "login")
             });
-        var result = await client.PostAsync("/api/Membership/exists", content);
-        string resultContent = await result.Content.ReadAsStringAsync();
+          var result = await client.PostAsync("/api/Membership/exists", content);
+          string resultContent = await result.Content.ReadAsStringAsync();
 
-        return resultContent;
+          return resultContent;
+        }
       }
+      catch (Exception ex)
+      {
+        return ex.Message.ToString();
+      }
+
     }
 
     public static async Task<string> GetAsync(string baseUrl, string url)
     {
-      using (var client = new HttpClient())
+      try
       {
-        client.BaseAddress = new Uri(baseUrl);
+        using (var client = new HttpClient())
+        {
+          client.BaseAddress = new Uri(baseUrl);
 
-        var result = await client.GetAsync(url);
-        string resultContent = await result.Content.ReadAsStringAsync();
+          var result = await client.GetAsync(url);
+          string resultContent = await result.Content.ReadAsStringAsync();
 
-        return resultContent;
+          return resultContent;
+        }
       }
+      catch (Exception ex)
+      {
+        return ex.Message.ToString();
+      }
+
     }
   }
 }
