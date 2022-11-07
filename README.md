@@ -14,7 +14,7 @@ Também estão contidos na pasta Raiz deste projeto o arquivo: "ScriptsSql.txt" 
 
 --PARA RODAR O PROJETO--
 
-Para o rodar o projeto do Front em Angular existem duas maneiras:
+Para o rodar o projeto do Front em Angular existém duas maneiras:
 
 1 - Abra a URL: https://pablozagnoli.github.io/LocacaoDeImoveis/home
 O projeto do front em Angular já está publicado no GitHub Pages e funcional.
