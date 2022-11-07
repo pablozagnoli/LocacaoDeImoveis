@@ -21,7 +21,7 @@ O projeto do front em Angular já está publicado no GitHub Pages e funcional.
 Ao abrir a URL nenhum dado será exibido se a API no back não estiver rodando na porta 5000 do localHost. (Para rodar a API siga para a etapa de execução do Back).
 
 2 - Certifique-se de que você pussui o Angular-MSI instalado em seu computador. 
-Clone o repósitorio, abra a pasta do projeto do front com seu Terminal preferido e em seguida digite o comando "ng serve".
+Clone o repositório, abra a pasta do projeto do front com seu Terminal preferido e em seguida digite o comando "ng serve".
 este comando irá realizar a execução do projeto do front no seu localhost. Ao abrir o projeto no seu navegador nenhum dado será exibido se a API no back não estiver rodando na porta 5000 do localHost. (Para rodar a API siga para a etapa de execução do Back).
 
 
