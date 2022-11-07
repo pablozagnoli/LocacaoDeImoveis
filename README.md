@@ -2,7 +2,7 @@
 
 --Essa aplicação foi desenvolvida utilizando .Net Core para o Back e Angular para o Front--
 
-no diretório existem duas pastas separando o back e o front:
+No diretório existem duas pastas separando o back e o front:
 
 Na pasta de nome: "Front" se encontra o Projeto do front, uma interface desenvolvido em Angular.
 
