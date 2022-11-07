@@ -8,6 +8,8 @@ Na pasta de nome: "Front" se encontra o Projeto do front, uma interface desenvol
 
 Na pasta de nome: "Back" se encontra o Projeto do back, uma API desenvolvida em .Net Core.
 
+Tambem estão contidos na pasta Raiz deste projeto o arquivo: "ScriptsSql.txt" contendo o Script de Criação da tabela do banco de dados MySql.
+
 --Tambem foi utilizada com critério de avaliação a API ViaCep para consulta do endereço via CEP como critério de avaliação--
 
 --PARA RODAR O PROJETO--
@@ -20,10 +22,12 @@ Ao abrir a URL nenhum dado será exibido se a API no back não estiver rodando n
 
 2 - Certifique-se de que você pussui o Angular-MSI instalado em seu computador. 
 Clone o repósitorio abra a pasta do projeto do front com seu Terminal preferido e em seguida digite o o comando "ng serve".
-este comando irá realizar a execução do projeto do front no seu localhost. Ao abrir o projeto no seu navegador nenhum dado será exibido se a API no back não estiver rodando na porta 5000 do localHost. (Para roda a API siga para a etapa de execução do Back).
+este comando irá realizar a execução do projeto do front no seu localhost. Ao abrir o projeto no seu navegador nenhum dado será exibido se a API no back não estiver rodando na porta 5000 do localHost. (Para rodar a API siga para a etapa de execução do Back).
 
 
 Para o rodar o projeto do Back API em .NET:
-Certifique-se de que você pussui o .NET instalado em seu computador. 
-Clone o repósitorio abra a pasta do projeto do back com seu Terminal preferido e em seguida digite o comando "dotnet run".
+
+Certifique-se de que você pussui o .NET e MySql instalado em seu computador.
+Abra seu banco de dados MySql E execute o scripts contidos no Arquivo "ScriptsSql.txt" que está localizado na pasta ruiz deste projeto. 
+Clone o repósitorio abra a pasta do projeto do back com seu editor de textos favorito, navegue até o arquivo: "Repository.cs" edite o valor da variavel: "" e preencha com valor da sua string de conexao com o banco de dados MySql, Exemplo de string de conexão: "Server=localhost;Database=SeuBancoDeDados;Uid=SeuUsuario;Pwd=SuaSenha#". Em seguida abra na pasta raiz do projeto do Back o seu Terminal preferido e em seguida digite o comando "dotnet run".
 este comando irá realizar a execução do projeto do back no seu localhost na porta 500 (Certifque-se de o projeto está rodando nessa porta). Após executar com o sucesso a API do back, você pode navegar e executar todas as funções do projet do Front em Angular.

@@ -1,0 +1,12 @@
+CREATE  TABLE  IF NOT EXISTS  imoveis (         
+imovel_id  INT  AUTO_INCREMENT  PRIMARY KEY,         
+titulo_imovel VARCHAR(100),
+descricao_imovel VARCHAR(255),
+endereco_imovel VARCHAR(155),
+cep_imovel VARCHAR(255),
+valor_imovel VARCHAR(255),
+data_de_edicao  DATE,
+status  TINYINT  NOT NULL,
+priority  TINYINT  NOT NULL,
+description  TEXT,
+data_de_criacao  TIMESTAMP  DEFAULT  CURRENT_TIMESTAMP)           ENGINE=INNODB;
