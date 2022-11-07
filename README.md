@@ -4,7 +4,7 @@
 
 No diretório existem duas pastas separando o back e o front:
 
-Na pasta de nome: "Front" se encontra o Projeto do front, uma interface desenvolvido em Angular.
+Na pasta de nome: "Front" se encontra o Projeto do front, uma interface desenvolvida em Angular.
 
 Na pasta de nome: "Back" se encontra o Projeto do back, uma API desenvolvida em .Net Core.
 
